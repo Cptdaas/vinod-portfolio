@@ -28,6 +28,24 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            background: "rgba(0,0,0,0.7)",
+            color: "#f87171",
+            fontSize: "0.85rem",
+            textAlign: "center",
+            letterSpacing: "0.05em",
+            zIndex: 50,
+            padding: "0.3rem 0",
+            fontFamily: 'var(--font-geist-mono)',
+          }}
+        >
+          &copy; {new Date().getFullYear()} Vinod Tiwari &mdash; All Rights Reserved. <span style={{color:'#eab308'}}>AI Architect</span>
+        </footer>
       </body>
     </html>
   );
