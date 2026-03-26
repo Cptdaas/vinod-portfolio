@@ -41,6 +41,7 @@ The design reflects precision, structure, and architectural thinking.
 ## 🌐 Features
 
 - Professional landing page
+- **GenAI Book** - Complete guide to modern AI applications
 - Medium blog redirect page
 - Resume download option
 - YouTube channel integration
@@ -68,3 +69,18 @@ All new changes are first developed in the `port1` branch before merging into `m
 ```bash
 npm install
 npm run dev
+```
+
+Access the application at `http://localhost:3000`
+
+### 📚 Book Page
+
+The GenAI Book is available at `/book` route and can be accessed via:
+- Direct URL: `http://localhost:3000/book`
+- Navigation: Click "Explore" → "GenAI Book"
+
+The book contains:
+- Complete guide to modern AI applications
+- Interactive HTML format with images
+- Professional styling and layout
+- Covers comprehensive GenAI topics and implementations

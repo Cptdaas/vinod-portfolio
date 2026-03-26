@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FullGenAICourse - Complete Guide to Modern AI Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fff;
+        }
+        
+        /* Title Page Styles */
+        .title-page {
+            height: 100vh;
+            background: url('genAI1.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            page-break-after: always;
+        }
+        
+        .title-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .title-content {
+            position: relative;
+            z-index: 10;
+            text-align: left;
+            color: white;
+            max-width: 90%;
+            padding-left: 40px;
+            padding-top: 40px;
+        }
+        
+        .main-title {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .author-info {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-align: right;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .author-title {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        .author-links {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .author-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .author-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Table of Contents Styles */
+        .toc-page {
+            min-height: 100vh;
+            background: transparent;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+        }
+        
+        .toc-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .toc-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 1rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .toc-chapter {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        
+        .toc-topics {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-left: 1rem;
+        }
+        
+        .toc-topics li {
+            margin-bottom: 0.2rem;
+            list-style-type: '▸ ';
+            padding-left: 0.5rem;
+        }
+        
+        /* Chapter Separator Styles */
+        .chapter-separator {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-separator::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            
+        }
+        
+        @keyframes move { display: none;
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .separator-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .book-name {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .separator-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Content Styles */
+        .content-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(52,152,219,0.2);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        tr:hover {
+            background: rgba(52,152,219,0.05);
+        }
+        
+        pre {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #00d4ff;
+            box-shadow: 0 8px 32px rgba(0,212,255,0.15);
+            font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+            white-space: pre-wrap;
+            color: #e8e8ff;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        pre.python-code::before {
+            content: "python";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #ff6b6b, #4d79ff);
+            color: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px 0 0 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,212,255,0.3);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        pre code {
+            background: rgba(13,17,23,0.8);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 0 2px rgba(0,212,255,0.4);
+            display: block;
+            font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+        }
+        
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(45,55,72,0.1));
+            font-style: italic;
+            color: #2c3e50;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        /* Thank You Page Styles */
+        .thank-you-page {
+            min-height: 100vh;
+            background: url('close.jpg') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+        }
+        
+        .thank-you-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .thank-you-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 80%;
+        }
+        
+        .thank-you-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+        
+        .thank-you-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .reference-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #3498db;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .reference-links {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .reference-item {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .reference-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f39c12;
+        }
+        
+        .reference-item a {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .reference-item a:hover {
+            text-decoration: underline;
+            color: #f39c12;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .title-page, .toc-page {
+                height: 100vh;
+                page-break-after: always;
+            }
+            
+            .chapter-separator {
+                background: #667eea !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Title Page -->
+    <div class="title-page">
+        <div class="title-overlay"></div>
+        <div class="title-content">
+            <h1 class="main-title">The GenAI Architect: RAG, Advanced RAG & Agentic Systems</h1>
+            <p class="subtitle">Complete Guide to Modern AI Applications</p>
+        </div>
+        <div class="author-info">
+            <div class="author-name">Written by: Vinod Tiwari</div>
+            <div class="author-title">AI Architect</div>
+            <div class="author-links">
+                <a href="https://www.linkedin.com/in/cptvinod/">LinkedIn</a>
+                <a href="https://github.com/Cptdaas">GitHub</a>
+                <a href="https://medium.com/@cpt1995daas">Medium</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc-page">
+        <div class="toc-overlay"></div>
+        <div class="toc-content">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 01 — Introduction to LangChain</div>
+                    <ul class="toc-topics">
+                        <li>What is LangChain - Open-source framework for LLM applications</li>
+                        <li>Key Benefits - Model-agnostic development, complete ecosystem</li>
+                        <li>Applications - Chatbots, Q&A systems, RAG, autonomous agents</li>
+                        <li>Alternatives - Comparison with LlamaIndex and Haystack</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 02 — LangChain Components</div>
+                    <ul class="toc-topics">
+                        <li>Six Core Components - Models, Prompts, Chains, Indexes, Memory, Agents</li>
+                        <li>Architecture Overview - How components work together</li>
+                        <li>Component Map - Visual representation of the ecosystem</li>
+                        <li>Integration - Seamless component composition</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 03 — Models</div>
+                    <ul class="toc-topics">
+                        <li>Model Types - LLMs, Chat Models, Embedding Models</li>
+                        <li>Providers - OpenAI, Anthropic, Google, HuggingFace</li>
+                        <li>Open Source - Local models with Ollama, llama.cpp</li>
+                        <li>Embeddings - Text to vector conversion for similarity</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 04 — Prompts</div>
+                    <ul class="toc-topics">
+                        <li>Dynamic Prompts - Reusable templates with variables</li>
+                        <li>Chat Prompts - Multi-role message sequences</li>
+                        <li>Role-Based - System, User, Assistant messages</li>
+                        <li>PromptTemplate - Structured prompt management</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 05 — Structured Output</div>
+                    <ul class="toc-topics">
+                        <li>Why Structure - Consistent, parseable responses</li>
+                        <li>Pydantic Models - Type-safe data validation</li>
+                        <li>TypedDict - Lightweight schema definition</li>
+                        <li>Use Cases - Data extraction, API building, agents</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 06 — Output Parsers</div>
+                    <ul class="toc-topics">
+                        <li>Parser Types - String, JSON, Structured, Pydantic</li>
+                        <li>Validation - Ensuring response consistency</li>
+                        <li>Legacy vs Modern - Comparison with structured output</li>
+                        <li>When to Use - Choosing the right parser</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 07 — Chains</div>
+                    <ul class="toc-topics">
+                        <li>Chain Types - Simple, Sequential, Parallel, Conditional</li>
+                        <li>LCEL - LangChain Expression Language</li>
+                        <li>Composition - Building complex pipelines</li>
+                        <li>Performance - Parallel processing and routing</li>
+                    </ul>
+                </li>
+                <li class="toc-item">
+                    <div class="toc-chapter">Chapter 08 — Runnables & LCEL</div>
+                    <ul class="toc-topics">
+                        <li>Runnable Interface - Standard component API</li>
+                        <li>LCEL Pipeline - Declarative composition with | operator</li>
+                        <li>Five Primitives - Sequence, Parallel, Passthrough, Lambda, Branch</li>
+                        <li>Advanced Patterns - Custom functions and routing</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Chapter 01 -->
+    <div class="content-page">
+        <div class="chapter-separator">
+            <div class="separator-content">
+                <div class="book-name">FullGenAICourse</div>
+                <div class="separator-text">Chapter 01 — Introduction to LangChain</div>
+            </div>
+        </div>
+        
+        <h1>Chapter 01 — Introduction to LangChain</h1>
+        
+        <h2>What is LangChain?</h2>
+        <p>LangChain is an <strong>open-source framework</strong> for developing applications powered by large language models (LLMs). It provides modular components and end-to-end tools that help developers build complex AI applications such as chatbots, question-answering systems, RAG, autonomous agents, and more.</p>
+        
+        <h3>Key Advantages</h3>
+        <table>
+            <tr><th>#</th><th>Feature</th></tr>
+            <tr><td>1</td><td>Supports all major LLMs</td></tr>
+            <tr><td>2</td><td>Simplifies LLM-based application development</td></tr>
+            <tr><td>3</td><td>Integrations for all major tools</td></tr>
+            <tr><td>4</td><td>Open source / Free / Actively developed</td></tr>
+            <tr><td>5</td><td>Supports all major GenAI use cases</td></tr>
+        </table>
+        
+        <h2>Why LangChain?</h2>
+        <p>Without LangChain, building an AI app that reads a PDF, answers questions, and remembers context requires manually wiring together LLM APIs, document parsing, embedding pipelines, vector databases, and memory. LangChain abstracts all of this with a unified, composable interface.</p>
+        
+        <p><strong>Example queries LangChain can power:</strong></p>
+        <ul>
+            <li>"Explain page number 5 as if I am a 5 year old"</li>
+            <li>"Generate a True/False exercise on Linear Regression"</li>
+            <li>"Generate notes for Decision Trees"</li>
+        </ul>
+        
+        <h2>What Can You Build?</h2>
+        <pre>
+┌─────────────────────────────────────────────────────┐
+│                LangChain Applications                │
+├─────────────────────┬───────────────────────────────┤
+│ Conversational      │  AI Knowledge Assistants       │
+│ Chatbots            │  (RAG-powered Q&A)             │
+├─────────────────────┼───────────────────────────────┤
+│ AI Agents           │  Workflow Automation            │
+│ (Tool-using)        │  (multi-step pipelines)        │
+├─────────────────────┴───────────────────────────────┤
+│         Summarization / Research Helpers             │
+└─────────────────────────────────────────────────────┘
+        </pre>
+        
+        <h2>Alternatives</h2>
+        <table>
+            <tr><th>Framework</th><th>Focus</th></tr>
+            <tr><td><strong>LlamaIndex</strong></td><td>Data indexing and RAG</td></tr>
+            <tr><td><strong>Haystack</strong></td><td>Production-ready NLP pipelines</td></tr>
+        </table>
+        
+        <p>LangChain is preferred for breadth — covering everything from simple LLM calls to complex agentic workflows.</p>
+        
+        <h2>Benefits of LangChain</h2>
+        <ul>
+            <li><strong>Concept of Chains</strong> — compose steps into pipelines</li>
+            <li><strong>Model Agnostic Development</strong> — swap LLMs without rewriting logic</li>
+            <li><strong>Complete Ecosystem</strong> — loaders, splitters, stores, agents, tools</li>
+            <li><strong>Memory and State Handling</strong> — maintain conversation context</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 02 -->
+    <div class="content-page page-break">
+        <div class="chapter-separator">
+            <div class="separator-content">
+                <div class="book-name">FullGenAICourse</div>
+                <div class="separator-text">Chapter 02 — LangChain Components</div>
+            </div>
+        </div>
+        
+        <h1>Chapter 02 — LangChain Components</h1>
+        
+        <p>LangChain is built from six core components that work together to create powerful LLM-based applications.</p>
+        
+        <h2>Component Map</h2>
+        <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                      LangChain Components                        │
+│                                                                  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐   │
+│  │  Models  │  │ Prompts  │  │  Chains  │  │   Indexes    │   │
+│  │          │  │          │  │          │  │              │   │
+│  │ LLM      │  │ Dynamic  │  │ Simple   │  │ PDFs/Webs/   │   │
+│  │ Chat     │  │ Role-    │  │ Sequent. │  │ DBs →        │   │
+│  │ Embed.   │  │ Based    │  │ Parallel │  │ VectorStore  │   │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────────┘   │
+│                                                                  │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐    │
+│  │         Memory           │  │          Agents          │    │
+│  │                          │  │                          │    │
+│  │ ConversationBuffer       │  │ Tool-using LLM that      │    │
+│  │ BufferWindow             │  │ reasons + acts in        │    │
+│  │ Summarizer               │  │ multi-step loops         │    │
+│  │ Custom                   │  │                          │    │
+│  └──────────────────────────┘  └──────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────┘
+        </pre>
+        
+        <h2>1. Models</h2>
+        <p>Core interfaces to interact with AI models — LLMs, Chat Models, and Embedding Models. Abstracts the complexity of working with different providers under a <strong>uniform interface</strong>.</p>
+        
+        <h2>2. Prompts</h2>
+        <p>Structured, reusable ways to construct inputs for models.</p>
+        <ul>
+            <li><strong>Dynamic & Reusable Prompts</strong> — inject variables at runtime</li>
+            <li><strong>Role-Based Prompts</strong> — system / user / assistant messages</li>
+            <li><strong>Few-Shot Prompting</strong> — provide examples in the prompt</li>
+        </ul>
+        
+        <h2>3. Chains</h2>
+        <p>A <strong>chain</strong> connects multiple components into a pipeline. Output of one step flows as input to the next.</p>
+        <pre>Input → [Prompt Template] → [LLM] → [Output Parser] → Result</pre>
+        
+        <h2>4. Indexes</h2>
+        <p>Indexes connect your application to <strong>external knowledge</strong> — PDFs, websites, databases.</p>
+        <pre>Raw Docs → Loader → Splitter → Embeddings → Vector Store → Retriever</pre>
+        
+        <h2>5. Memory</h2>
+        <p>LLM API calls are <strong>stateless</strong> by default — they don't remember previous turns. Memory components solve this:</p>
+        <table>
+            <tr><th>Memory Type</th><th>Description</th></tr>
+            <tr><td>ConversationBufferMemory</td><td>Stores full transcript of recent messages</td></tr>
+            <tr><td>ConversationBufferWindowMemory</td><td>Keeps only last N interactions</td></tr>
+            <tr><td>Summarizer-Based Memory</td><td>Periodically summarizes older segments</td></tr>
+            <tr><td>Custom Memory</td><td>Store user preferences, key facts, etc.</td></tr>
+        </table>
+        
+        <h2>6. Agents</h2>
+        <p>An AI agent is an <strong>LLM-powered system</strong> that can autonomously think, decide, and take actions using external tools or APIs to achieve a goal.</p>
+        <pre>
+User Goal
+    │
+    ▼
+┌─────────┐    ┌──────────────┐    ┌──────────────┐
+│  LLM    │───▶│   Reasoning  │───▶│  Tool Call   │
+│         │    │   (Thought)  │    │  (Action)    │
+└─────────┘    └──────┬───────┘    └──────┬───────┘
+                      │                   │
+                      ◀───── Observation ─┘
+                      │
+                 (repeat until done)
+                      │
+                      ▼
+                Final Answer
+        </pre>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 01 — Introduction to LangChain</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 01 — Introduction to LangChain</h1>
+            
+            <h2>What is LangChain?</h2>
+            <p>LangChain is an <strong>open-source framework</strong> for developing applications powered by large language models (LLMs). It provides modular components and end-to-end tools that help developers build complex AI applications such as chatbots, question-answering systems, RAG, autonomous agents, and more.</p>
+            
+            <h3>Key Advantages</h3>
+            <table>
+                <tr><th>#</th><th>Feature</th></tr>
+                <tr><td>1</td><td>Supports all major LLMs</td></tr>
+                <tr><td>2</td><td>Simplifies LLM-based application development</td></tr>
+                <tr><td>3</td><td>Integrations for all major tools</td></tr>
+                <tr><td>4</td><td>Open source / Free / Actively developed</td></tr>
+                <tr><td>5</td><td>Supports all major GenAI use cases</td></tr>
+            </table>
+            
+            <h2>Why LangChain?</h2>
+            <p>Without LangChain, building an AI app that reads a PDF, answers questions, and remembers context requires manually wiring together LLM APIs, document parsing, embedding pipelines, vector databases, and memory. LangChain abstracts all of this with a unified, composable interface.</p>
+            
+            <h3>Example queries LangChain can power:</h3>
+            <ul>
+                <li>"Explain page number 5 as if I am a 5 year old"</li>
+                <li>"Generate a True/False exercise on Linear Regression"</li>
+                <li>"Generate notes for Decision Trees"</li>
+            </ul>
+            
+            <h2>What Can You Build?</h2>
+            <pre>
+┌─────────────────────────────────────────────────────┐
+│                LangChain Applications                │
+├─────────────────────┬───────────────────────────────┤
+│ Conversational      │  AI Knowledge Assistants       │
+│ Chatbots            │  (RAG-powered Q&A)             │
+├─────────────────────┼───────────────────────────────┤
+│ AI Agents           │  Workflow Automation            │
+│ (Tool-using)        │  (multi-step pipelines)        │
+├─────────────────────┴───────────────────────────────┤
+│         Summarization / Research Helpers             │
+└─────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>Alternatives</h2>
+            <table>
+                <tr><th>Framework</th><th>Focus</th></tr>
+                <tr><td><strong>LlamaIndex</strong></td><td>Data indexing and RAG</td></tr>
+                <tr><td><strong>Haystack</strong></td><td>Production-ready NLP pipelines</td></tr>
+            </table>
+            
+            <p>LangChain is preferred for breadth — covering everything from simple LLM calls to complex agentic workflows.</p>
+            
+            <h2>Benefits of LangChain</h2>
+            <ul>
+                <li><strong>Concept of Chains</strong> — compose steps into pipelines</li>
+                <li><strong>Model Agnostic Development</strong> — swap LLMs without rewriting logic</li>
+                <li><strong>Complete Ecosystem</strong> — loaders, splitters, stores, agents, tools</li>
+                <li><strong>Memory and State Handling</strong> — maintain conversation context</li>
+            </ul>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 02 — LangChain Components</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 02 — LangChain Components</h1>
+            <p>LangChain is built from six core components that work together to create powerful LLM-based applications.</p>
+            
+            <h2>Component Map</h2>
+            <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                      LangChain Components                        │
+│                                                                  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐   │
+│  │  Models  │  │ Prompts  │  │  Chains  │  │   Indexes    │   │
+│  │          │  │          │  │          │  │              │   │
+│  │ LLM      │  │ Dynamic  │  │ Simple   │  │ PDFs/Webs/   │   │
+│  │ Chat     │  │ Role-    │  │ Sequent. │  │ DBs →        │   │
+│  │ Embed.   │  │ Based    │  │ Parallel │  │ VectorStore  │   │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────────┘   │
+│                                                                  │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐    │
+│  │         Memory           │  │          Agents          │    │
+│  │                          │  │                          │    │
+│  │ ConversationBuffer       │  │ Tool-using LLM that      │    │
+│  │ BufferWindow             │  │ reasons + acts in        │    │
+│  │ Summarizer               │  │ multi-step loops         │    │
+│  │ Custom                   │  │                          │    │
+│  └──────────────────────────┘  └──────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>1. Models</h2>
+            <p>Core interfaces to interact with AI models — LLMs, Chat Models, and Embedding Models. Abstracts the complexity of working with different providers under a <strong>uniform interface</strong>.</p>
+            
+            <h2>2. Prompts</h2>
+            <p>Structured, reusable ways to construct inputs for models.</p>
+            <ul>
+                <li><strong>Dynamic & Reusable Prompts</strong> — inject variables at runtime</li>
+                <li><strong>Role-Based Prompts</strong> — system / user / assistant messages</li>
+                <li><strong>Few-Shot Prompting</strong> — provide examples in the prompt</li>
+            </ul>
+            
+            <h2>3. Chains</h2>
+            <p>A <strong>chain</strong> connects multiple components into a pipeline. Output of one step flows as input to the next.</p>
+            <pre>Input → [Prompt Template] → [LLM] → [Output Parser] → Result</pre>
+            
+            <h2>4. Indexes</h2>
+            <p>Indexes connect your application to <strong>external knowledge</strong> — PDFs, websites, databases.</p>
+            <pre>Raw Docs → Loader → Splitter → Embeddings → Vector Store → Retriever</pre>
+            
+            <h2>5. Memory</h2>
+            <p>LLM API calls are <strong>stateless</strong> by default — they don't remember previous turns. Memory components solve this:</p>
+            <table>
+                <tr><th>Memory Type</th><th>Description</th></tr>
+                <tr><td>ConversationBufferMemory</td><td>Stores full transcript of recent messages</td></tr>
+                <tr><td>ConversationBufferWindowMemory</td><td>Keeps only last N interactions</td></tr>
+                <tr><td>Summarizer-Based Memory</td><td>Periodically summarizes older segments</td></tr>
+                <tr><td>Custom Memory</td><td>Store user preferences, key facts, etc.</td></tr>
+            </table>
+            
+            <h2>6. Agents</h2>
+            <p>An AI agent is an <strong>LLM-powered system</strong> that can autonomously think, decide, and take actions using external tools or APIs to achieve a goal.</p>
+            <pre>
+User Goal
+    │
+    ▼
+┌─────────┐    ┌──────────────┐    ┌──────────────┐
+│  LLM    │───▶│   Reasoning  │───▶│  Tool Call   │
+│         │    │   (Thought)  │    │  (Action)    │
+└─────────┘    └──────┬───────┘    └──────┬───────┘
+                      │                   │
+                      ◀───── Observation ─┘
+                      │
+                 (repeat until done)
+                      │
+                      ▼
+                Final Answer
+            </pre>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 03 — Models</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 03 — Models</h1>
+            <p>The <strong>Model Component</strong> in LangChain is a crucial part of the framework designed to facilitate interactions with various language models and embedding models. It abstracts the complexity of working directly with different LLMs, providing a <strong>uniform interface</strong> to communicate with them.</p>
+            
+            <h2>Model Types</h2>
+            <pre>
+                    LangChain Models
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+    ┌──────────┐   ┌──────────────┐  ┌───────────────┐
+    │   LLMs   │   │ Chat Models  │  │  Embedding    │
+    │          │   │              │  │  Models       │
+    │ Text in  │   │ Messages in  │  │               │
+    │ Text out │   │ Messages out │  │ Text → Vector │
+    │          │   │              │  │               │
+    │ (older,  │   │ (newer,      │  │ Used for      │
+    │ raw gen) │   │ widely used) │  │ similarity    │
+    └──────────┘   └──────────────┘  └───────────────┘
+            </pre>
+            
+            <h2>Language Models</h2>
+            <p><strong>Language Models</strong> are AI systems designed to process, generate, and understand natural language text.</p>
+            
+            <h3>LLMs (Legacy)</h3>
+            <ul>
+                <li>General-purpose models for <strong>raw text generation</strong></li>
+                <li>Input: plain string → Output: plain string</li>
+                <li>Traditionally older models, less used now</li>
+            </ul>
+            
+            <h3>Chat Models (Modern)</h3>
+            <ul>
+                <li>Specialized for <strong>conversational tasks</strong></li>
+                <li>Input: sequence of messages → Output: chat message</li>
+                <li>Used more widely — GPT-4, Claude, Gemini, etc.</li>
+            </ul>
+            
+            <h2>Supported Providers (Demo)</h2>
+            <table>
+                <tr><th>Provider</th><th>Notes</th></tr>
+                <tr><td><strong>OpenAI</strong></td><td>GPT-3.5, GPT-4, GPT-4o</td></tr>
+                <tr><td><strong>Anthropic</strong></td><td>Claude 3, Claude Sonnet</td></tr>
+                <tr><td><strong>Google</strong></td><td>Gemini Pro, Gemini Flash</td></tr>
+                <tr><td><strong>HuggingFace</strong></td><td>Open-source models via inference API</td></tr>
+            </table>
+            
+            <h2>Open Source Models</h2>
+            <p>Open-source language models are <strong>freely available</strong> AI models that can be downloaded, modified, fine-tuned, and deployed without restrictions from a central provider.</p>
+            
+            <p>Unlike closed-source models (GPT-4, Claude, Gemini), open-source models allow <strong>full control and customization</strong>.</p>
+            
+            <h3>Where to Find Them</h3>
+            <ul>
+                <li><strong>HuggingFace</strong> — the largest repository of open-source LLMs</li>
+            </ul>
+            
+            <h3>Ways to Use Open-Source Models</h3>
+            <ul>
+                <li>Download and run locally (Ollama, llama.cpp)</li>
+                <li>Use via HuggingFace Inference API</li>
+                <li>Self-host on cloud (AWS, GCP, Azure)</li>
+            </ul>
+            
+            <h3>Disadvantages</h3>
+            <ul>
+                <li>Require hardware (GPU) for inference</li>
+                <li>More setup overhead</li>
+                <li>May lag behind proprietary models in quality</li>
+            </ul>
+            
+            <h2>Embedding Models</h2>
+            <p>Embedding models convert text into <strong>dense numerical vectors</strong> (embeddings) that capture semantic meaning.</p>
+            <pre>
+"What is LangChain?"
+         │
+         ▼
+  Embedding Model
+         │
+         ▼
+ [0.23, -0.41, 0.87, ..., 0.12]  ← 1536-dim vector
+            </pre>
+            
+            <h3>Use Cases</h3>
+            <ul>
+                <li>Semantic similarity search</li>
+                <li>Retrieval Augmented Generation (RAG)</li>
+                <li>Document clustering and classification</li>
+            </ul>
+            
+            <h3>Common Embedding Models</h3>
+            <table>
+                <tr><th>Model</th><th>Provider</th></tr>
+                <tr><td>text-embedding-3-small</td><td>OpenAI</td></tr>
+                <tr><td>text-embedding-3-large</td><td>OpenAI</td></tr>
+                <tr><td>embed-english-v3.0</td><td>Cohere</td></tr>
+                <tr><td>all-MiniLM-L6-v2</td><td>HuggingFace (open source)</td></tr>
+            </table>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 04 — Prompts</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 04 — Prompts</h1>
+            <p><strong>Prompts</strong> are the input instructions or queries given to a model to guide its output. In LangChain, prompts are first-class objects — structured, reusable, and composable.</p>
+            
+            <h2>Static vs Dynamic Prompts</h2>
+            <pre>
+┌──────────────────────────────────────────────────────┐
+│  STATIC PROMPT                                        │
+│                                                       │
+│  "Summarize the Attention Is All You Need paper"      │
+│  (hardcoded — not reusable)                           │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  DYNAMIC PROMPT (with PromptTemplate)                 │
+│                                                       │
+│  "Summarize {paper} in a {style} style,              │
+│   with {length} length."                             │
+│                                                       │
+│  → Filled at runtime from user inputs                 │
+└──────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>PromptTemplate</h2>
+            <p>A <code>PromptTemplate</code> in LangChain is a structured way to create prompts dynamically by inserting <strong>variables into a predefined template</strong>.</p>
+            
+            <p>Instead of hardcoding prompts, <code>PromptTemplate</code> allows you to define <strong>placeholders</strong> that can be filled in at runtime with different inputs. This makes it <strong>reusable, flexible, and easy to manage</strong>.</p>
+            
+            <h3>Why use PromptTemplate over f-strings?</h3>
+            <table>
+                <tr><th>Reason</th><th>Explanation</th></tr>
+                <tr><td><strong>Default Validation</strong></td><td>Catches missing variables before LLM call</td></tr>
+                <tr><td><strong>Reusable</strong></td><td>Define once, use across different inputs</td></tr>
+                <tr><td><strong>LangChain Ecosystem</strong></td><td>Composable with chains, LCEL, agents</td></tr>
+            </table>
+            
+            <h3>Example</h3>
+            <pre class="python-code"><code>from langchain.prompts import PromptTemplate
+
+template = PromptTemplate(
+    input_variables=["paper", "style", "length"],
+    template="""Please summarize the research paper titled "{paper}".
+Explanation Style: {style}
+Explanation Length: {length}
+If certain information is not available, respond with: "Insufficient information available"."""
+)
+
+prompt = template.format(
+    paper="Attention Is All You Need",
+    style="Beginner-Friendly",
+    length="Medium (3-5 paragraphs)"
+)</code></pre>
+            <h2>Messages</h2>
+            <p>In Chat Models, prompts are structured as a sequence of <strong>messages</strong>, each with a role:</p>
+            <pre><code>from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+template = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful AI tutor."),
+    MessagesPlaceholder(variable_name="chat_history"),  # ← injected at runtime</code></pre>
+            
+            <h2>ChatPromptTemplate</h2>
+            <p><code>ChatPromptTemplate</code> is used to build structured multi-role prompt sequences for Chat Models.</p>
+            <pre class="python-code"><code>from langchain.prompts import ChatPromptTemplate
+
+template = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful AI tutor."),
+    ("human", "Explain {topic} in simple terms.")
+])</code></pre>
+            
+            <h2>MessagesPlaceholder</h2>
+            <p>A <code>MessagesPlaceholder</code> in LangChain is a special placeholder used inside a <code>ChatPromptTemplate</code> to <strong>dynamically insert chat history</strong> or a list of messages at runtime.</p>
+            <pre><code>from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+template = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant."),
+    MessagesPlaceholder(variable_name="chat_history"),  # ← injected at runtime</code></pre>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 05 — Structured Output</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 05 — Structured Output</h1>
+            <p><strong>Structured Output</strong> is a technique to ensure that language model responses follow a specific, predictable format. This is crucial for building reliable AI applications that need to parse and process model outputs programmatically.</p>
+            
+            <h2>Why Structure?</h2>
+            <ul>
+                <li><strong>Consistent Responses</strong> — Get predictable output format every time</li>
+                <li><strong>Parseable Data</strong> — Easy to extract and process information</li>
+                <li><strong>Type Safety</strong> — Ensure data types match expectations</li>
+                <li><strong>API Integration</strong> — Direct integration with downstream systems</li>
+            </ul>
+            
+            <h2>Pydantic Models</h2>
+            <p><strong>Pydantic</strong> is a Python library that provides data validation using Python type annotations. It's perfect for defining structured output schemas.</p>
+            
+            <h3>Benefits of Pydantic</h3>
+            <ul>
+                <li><strong>Type Safety</strong> — Automatic type checking and conversion</li>
+                <li><strong>Validation</strong> — Built-in validation rules</li>
+                <li><strong>Serialization</strong> — Easy JSON serialization/deserialization</li>
+                <li><strong>IDE Support</strong> — Autocomplete and type hints</li>
+            </ul>
+            
+            <h3>Example Pydantic Model</h3>
+            <pre><code>from pydantic import BaseModel, Field
+from typing import List, Optional
+
+class ProductReview(BaseModel):
+    product_name: str = Field(description="Name of the product")
+    rating: int = Field(description="Rating from 1-5", ge=1, le=5)
+    pros: List[str] = Field(description="List of positive points")
+    cons: List[str] = Field(description="List of negative points")
+    summary: str = Field(description="Brief summary of the review")
+    would_recommend: bool = Field(description="Whether the reviewer recommends it")</code></pre>
+            
+            <h2>TypedDict</h2>
+            <p><strong>TypedDict</strong> is a lightweight alternative to Pydantic for defining structured output schemas using standard Python typing.</p>
+            
+            <h3>Benefits of TypedDict</h3>
+            <ul>
+                <li><strong>Lightweight</strong> — No additional dependencies</li>
+                <li><strong>Standard Library</strong> — Built into Python</li>
+                <li><strong>Simple</strong> — Easier for basic use cases</li>
+            </ul>
+            
+            <h3>Example TypedDict</h3>
+            <pre><code>from typing import TypedDict, List, Optional
+
+class ProductReview(TypedDict):
+    product_name: str
+    rating: int  # 1-5
+    pros: List[str]
+    cons: List[str]
+    summary: str
+    would_recommend: bool</code></pre>
+            
+            <h2>Use Cases</h2>
+            <h3>Data Extraction</h3>
+            <p>Extract structured information from unstructured text:</p>
+            <ul>
+                <li>Resume parsing → structured candidate profile</li>
+                <li>Invoice processing → structured financial data</li>
+                <li>News articles → structured event information</li>
+            </ul>
+            
+            <h3>API Building</h3>
+            <p>Create reliable APIs that use LLMs as backend:</p>
+            <ul>
+                <li>Chatbot responses with structured intents</li>
+                <li>Content generation with metadata</li>
+                <li>Analysis services with structured results</li>
+            </ul>
+            
+            <h3>Agents</h3>
+            <p>Structured outputs for agent decision-making:</p>
+            <ul>
+                <li>Tool selection with parameters</li>
+                <li>Planning with structured steps</li>
+                <li>Reasoning with logical conclusions</li>
+            </ul>
+            
+            <h2>Best Practices</h2>
+            <ul>
+                <li><strong>Be Specific</strong> — Clearly define field descriptions</li>
+                <li><strong>Validate Input</strong> — Add constraints and validation rules</li>
+                <li><strong>Handle Errors</strong> — Provide fallback for invalid outputs</li>
+                <li><strong>Test Thoroughly</strong> — Validate with various inputs</li>
+            </ul>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 06 — Output Parsers</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 06 — Output Parsers</h1>
+            <p><strong>Output Parsers</strong> in LangChain help convert raw LLM responses into structured formats like JSON, CSV, Pydantic models, and more. They ensure <strong>consistency, validation, and ease of use</strong> in applications.</p>
+            
+            <blockquote>
+                <strong>Note:</strong> For new applications, prefer <code>with_structured_output()</code> (Chapter 05). Output Parsers are older approach but still widely used and supported.
+            </blockquote>
+            
+            <h2>Output Parser Flow</h2>
+            <pre>
+LLM Raw Response (string)
+          │
+          ▼
+    Output Parser
+          │
+    ┌─────┴──────┐
+    │            │
+    ▼            ▼
+ Parsed        Validation
+ Object        Error (if invalid)
+            </pre>
+            
+            <h2>1. StrOutputParser</h2>
+            <p>The <strong>simplest</strong> output parser. Takes LLM output and returns it as a plain string. Useful when you just want clean text without any structure.</p>
+            <pre><code>from langchain_core.output_parsers import StrOutputParser
+
+chain = prompt | llm | StrOutputParser()
+result = chain.invoke({"topic": "LangChain"})
+# result is a plain string</code></pre>
+            <p><strong>When to use:</strong> Any time you just want raw text response — no structure needed.</p>
+            
+            <h2>2. JSONOutputParser</h2>
+            <p>Parses LLM output as JSON. The LLM must be prompted to return valid JSON.</p>
+            <pre><code>from langchain_core.output_parsers import JsonOutputParser
+
+parser = JsonOutputParser()
+chain = prompt | llm | parser
+result = chain.invoke({"text": "Review text here"})
+# result is a Python dict</code></pre>
+            
+            <h2>3. StructuredOutputParser</h2>
+            <p><code>StructuredOutputParser</code> helps extract <strong>structured JSON data</strong> from LLM responses based on <strong>predefined field schemas</strong> (<code>ResponseSchema</code>).</p>
+            <pre><code>from langchain.output_parsers import StructuredOutputParser, ResponseSchema
+
+schemas = [
+    ResponseSchema(name="summary", description="Brief overview"),
+    ResponseSchema(name="sentiment", description="positive, neutral, or negative"),
+]
+
+parser = StructuredOutputParser.from_response_schemas(schemas)
+format_instructions = parser.get_format_instructions()
+# Inject format_instructions into your prompt</code>
+            </div>
+            <p><strong>How it works:</strong></p>
+            <ol>
+                <li>Define fields with <code>ResponseSchema</code></li>
+                <li>Get format instructions → inject into prompt</li>
+                <li>LLM returns a formatted JSON string</li>
+                <li>Parser extracts and validates fields</li>
+            </ol>
+            
+            <h2>4. PydanticOutputParser</h2>
+            <p>Parses LLM output into a <strong>Pydantic model instance</strong> — giving you full type safety and validation.</p>
+            <div class="python-function">
+<code>from langchain.output_parsers import PydanticOutputParser
+from pydantic import BaseModel, Field
+
+class Joke(BaseModel):
+    setup: str = Field(description="The setup of joke")
+    punchline: str = Field(description="The punchline of joke")
+
+parser = PydanticOutputParser(pydantic_object=Joke)
+format_instructions = parser.get_format_instructions()</code>
+            </div>
+            
+            <h2>Comparison</h2>
+            <table>
+                <tr><th>Parser</th><th>Output Type</th><th>Validation</th><th>Use Case</th></tr>
+                <tr><td><code>StrOutputParser</code></td><td><code>str</code></td><td>None</td><td>Plain text responses</td></tr>
+                <tr><td><code>JsonOutputParser</code></td><td><code>dict</code></td><td>JSON validity</td><td>Flexible JSON</td></tr>
+                <tr><td><code>StructuredOutputParser</code></td><td><code>dict</code></td><td>Field presence</td><td>Named fields</td></tr>
+                <tr><td><code>PydanticOutputParser</code></td><td>Pydantic object</td><td>Full type check</td><td>Type-safe structured data</td></tr>
+            </table>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 07 — Chains</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 07 — Chains</h1>
+            <p>A <strong>Chain</strong> in LangChain connects multiple components into a pipeline where output of one step becomes the input of the next. Chains are the core composition mechanism in LangChain.</p>
+            
+            <h2>Why Chains?</h2>
+            <p>Without chains, you manually pass outputs between components:</p>
+            <pre><code>prompt = template.format(topic="AI")
+response = llm.invoke(prompt)
+result = parser.parse(response)</code></pre>
+            <p>With chains (via LCEL <code>|</code> operator):</p>
+            <pre><code>chain = template | llm | parser
+result = chain.invoke({"topic": "AI"})</code></pre>
+            
+            <h2>1. Simple Chain</h2>
+            <p>A single prompt → LLM → output parser pipeline.</p>
+            <pre>
+Input
+  │
+  ▼
+┌─────────────────┐
+│  Prompt Template │
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────┐
+│   LLM / Chat    │
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Output Parser  │
+└────────┬─────────┘
+         │
+         ▼
+      Output
+            </pre>
+            
+            <h2>2. Sequential Chain</h2>
+            <p>The output of one chain feeds as input into the next chain. Useful for <strong>multi-step reasoning</strong>.</p>
+            <pre>
+Input
+  │
+  ▼
+┌──────────────┐
+│   Chain 1    │  (e.g., Generate outline)
+└──────┬───────┘
+       │ Output 1
+       ▼
+┌──────────────┐
+│   Chain 2    │  (e.g., Expand outline into full text)
+└──────┬───────┘
+       │ Output 2
+       ▼
+┌──────────────┐
+│   Chain 3    │  (e.g., Translate result)
+└──────┬───────┘
+       │
+       ▼
+    Final Output
+            </pre>
+            
+            <h2>3. Parallel Chain</h2>
+            <p>Multiple chains run <strong>simultaneously</strong> on the same input. Their outputs are merged into a dictionary.</p>
+            <pre>
+           Input
+             │
+    ┌────────┼────────┐
+    ▼        ▼        ▼
+┌───────┐ ┌───────┐ ┌───────┐
+│Chain A│ │Chain B│ │Chain C│
+│(pros) │ │(cons) │ │(summ.)│
+└───┬───┘ └───┬───┘ └───┬───┘
+    └────────┬─────────┘
+             ▼
+    { pros: ..., cons: ..., summary: ... }
+            </pre>
+            <p><strong>When to use:</strong> Running multiple independent analyses on the same input — saves time by running in parallel.</p>
+            
+            <h2>4. Conditional Chain</h2>
+            <p>Routes to different chains based on conditions — like an <code>if/elif/else</code> for pipelines.</p>
+            <pre>
+Input
+  │
+  ▼
+┌─────────────────┐
+│  Router / Check │
+└──────┬──────────┘
+       │
+  ┌────┴─────┐
+  │          │
+  ▼          ▼
+[technical] [simple]
+  Chain      Chain
+  │          │
+  └────┬─────┘
+       ▼
+    Output
+            </pre>
+            <p><strong>Example:</strong> If the question is technical → use a detailed prompt. If it's casual → use a simple prompt.</p>
+            
+            <h2>Chain Summary</h2>
+            <table>
+                <tr><th>Chain Type</th><th>Use Case</th></tr>
+                <tr><td><strong>Simple</strong></td><td>Single-step prompt → response</td></tr>
+                <tr><td><strong>Sequential</strong></td><td>Multi-step, each step builds on previous</td></tr>
+                <tr><td><strong>Parallel</strong></td><td>Multiple independent analyses at once</td></tr>
+                <tr><td><strong>Conditional</strong></td><td>Route to different logic based on input</td></tr>
+            </table>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 08 — Runnables & LCEL</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 08 — Runnables & LCEL</h1>
+            
+            <h2>What are Runnables?</h2>
+            <p>A <strong>Runnable</strong> is any LangChain component that implements a standard interface with <code>.invoke()</code>, <code>.stream()</code>, and <code>.batch()</code> methods. Runnables are the building blocks of LCEL pipelines.</p>
+            <p>Every LangChain component — prompts, LLMs, output parsers, retrievers — is a Runnable.</p>
+            
+            <h2>LCEL — LangChain Expression Language</h2>
+            <p><strong>LCEL</strong> is a declarative way to compose Runnables using <code>|</code> (pipe) operator, inspired by Unix pipes.</p>
+            <pre><code>chain = prompt | llm | parser
+result = chain.invoke({"topic": "AI"})</code></pre>
+            <p>The <code>|</code> operator creates a <code>RunnableSequence</code> automatically.</p>
+            
+            <h2>The Five Runnable Primitives</h2>
+            <pre>
+┌─────────────────────────────────────────────────────────────┐
+│                    Runnable Primitives                       │
+│                                                              │
+│  1. RunnableSequence   → A | B | C  (sequential)            │
+│  2. RunnableParallel   → {a: A, b: B}  (parallel)           │
+│  3. RunnablePassthrough → pass input unchanged              │
+│  4. RunnableLambda     → wrap custom Python function         │
+│  5. RunnableBranch     → conditional routing (if/elif/else)  │
+└─────────────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>1. RunnableSequence</h2>
+            <p>Executes each step <strong>one after another</strong>, passing the output of one as input to the next.</p>
+            <pre>Input → [Step A] → [Step B] → [Step C] → Output</pre>
+            <pre><code>from langchain_core.runnables import RunnableSequence
+
+chain = RunnableSequence(prompt, llm, parser)
+# OR using pipe operator:
+chain = prompt | llm | parser</code></pre>
+            <p><strong>Use when:</strong> You need ordered, step-by-step processing.</p>
+            
+            <h2>2. RunnableParallel</h2>
+            <p>Runs <strong>multiple runnables simultaneously</strong> on the same input. Each produces its own output, collected into a dict.</p>
+            <pre>
+             Input
+               │
+      ┌────────┼────────┐
+      ▼        ▼        ▼
+   [Task A] [Task B] [Task C]
+      │        │        │
+      └────────┼────────┘
+               ▼
+  { "a": result_a, "b": result_b, "c": result_c }
+            </pre>
+            <pre><code>from langchain_core.runnables import RunnableParallel
+
+parallel = RunnableParallel({
+    "pros": pros_chain,
+    "cons": cons_chain,
+    "summary": summary_chain
+})</code></pre>
+            
+            <h2>3. RunnablePassthrough</h2>
+            <p>Simply <strong>returns the input unchanged</strong>. Used to pass original data alongside transformed data.</p>
+            <pre>Input → [RunnablePassthrough] → Same Input (unchanged)</pre>
+            <pre><code>from langchain_core.runnables import RunnablePassthrough
+
+chain = RunnableParallel({
+    "context": retriever,
+    "question": RunnablePassthrough()  # ← passes original question through
+})</code></pre>
+            <p><strong>Common RAG pattern:</strong></p>
+            <pre><code>rag_chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | parser
+)</code></pre>
+            
+            <h2>4. RunnableLambda</h2>
+            <p>Wraps a <strong>custom Python function</strong> so it can be used as a step in an LCEL pipeline. Acts as middleware for preprocessing, transformation, filtering, or post-processing.</p>
+            <pre><code>from langchain_core.runnables import RunnableLambda
+
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+format_chain = RunnableLambda(format_docs)
+
+chain = retriever | RunnableLambda(format_docs) | prompt | llm</code></pre>
+            
+            <h2>5. RunnableBranch</h2>
+            <p>A <strong>control flow</strong> component that conditionally routes input to different chains based on custom logic. Functions like <code>if/elif/else</code> for pipelines.</p>
+            <pre>
+Input
+  │
+  ▼
+┌─────────────────────────┐
+│     RunnableBranch      │
+│                         │
+│  if condition_1 → Chain1│
+│  elif condition_2 →Chain2│
+│  else (default) → Chain3│
+└──────────┬──────────────┘
+           │
+           ▼
+        Output
+            </pre>
+            <pre><code>from langchain_core.runnables import RunnableBranch
+
+branch = RunnableBranch(
+    (lambda x: "technical" in x["topic"], technical_chain),
+    (lambda x: "simple" in x["topic"], simple_chain),
+    default_chain  # fallback
+)</code></pre>
+            
+            <h2>Runnable Methods</h2>
+            <p>All runnables support these methods:</p>
+            <table>
+                <tr><th>Method</th><th>Description</th></tr>
+                <tr><td><code>.invoke(input)</code></td><td>Run synchronously, return result</td></tr>
+                <tr><td><code>.stream(input)</code></td><td>Stream output token by token</td></tr>
+                <tr><td><code>.batch([input1, input2])</code></td><td>Run multiple inputs in parallel</td></tr>
+                <tr><td><code>.ainvoke(input)</code></td><td>Async version of invoke</td></tr>
+                <tr><td><code>.astream(input)</code></td><td>Async streaming</td></tr>
+            </table>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 09 — RAG Pipeline</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 09 — RAG Pipeline</h1>
+            <p><strong>RAG (Retrieval Augmented Generation)</strong> is a technique that combines information retrieval with language generation, where a model retrieves relevant documents from a knowledge base and uses them as context to generate accurate and grounded responses.</p>
+            
+            <h2>Why RAG?</h2>
+            <table>
+                <tr><th>Benefit</th><th>Description</th></tr>
+                <tr><td><strong>Up-to-date information</strong></td><td>Access knowledge beyond LLM's training cutoff</td></tr>
+                <tr><td><strong>Better privacy</strong></td><td>Keep data in your own vector store, not sent to LLM training</td></tr>
+                <tr><td><strong>No document size limit</strong></td><td>Index unlimited documents; retrieve only what's needed</td></tr>
+            </table>
+            
+            <h2>RAG Overview Flow</h2>
+            <pre>
+┌──────────────────────────────────────────────────────────────┐
+│                        RAG Pipeline                           │
+│                                                               │
+│  INDEXING PHASE (done once / periodically)                    │
+│  ─────────────────────────────────────────                    │
+│  Raw Docs                                                     │
+│     │                                                         │
+│     ▼                                                         │
+│  [Document Loader]  ← PDF, Web, CSV, TXT, etc.               │
+│     │                                                         │
+│     ▼                                                         │
+│  [Text Splitter]    ← Break into chunks                       │
+│     │                                                         │
+│     ▼                                                         │
+│  [Embedding Model]  ← Convert chunks to vectors              │
+│     │                                                         │
+│     ▼                                                         │
+│  [Vector Store]     ← Store vectors (Chroma/Pinecone/FAISS)  │
+│                                                               │
+│  RETRIEVAL + GENERATION PHASE (at query time)                 │
+│  ─────────────────────────────────────────────                │
+│  User Query                                                   │
+│     │                                                         │
+│     ▼                                                         │
+│  [Retriever]        ← Similarity search in vector store      │
+│     │                                                         │
+│     ▼                                                         │
+│  Retrieved Chunks                                             │
+│     │                                                         │
+│     ▼                                                         │
+│  [Prompt Template]  ← Augment query with context             │
+│     │                                                         │
+│     ▼                                                         │
+│  [LLM]              ← Generate grounded answer               │
+│     │                                                         │
+│     ▼                                                         │
+│  Final Answer                                                 │
+└──────────────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>Part 1 — Document Loaders</h2>
+            <p>Document loaders are components in LangChain used to <strong>load data from various sources</strong> into a standardized format (usually as <code>Document</code> objects).</p>
+            
+            <h3>Available Loaders</h3>
+            <table>
+                <tr><th>Loader</th><th>Source</th><th>Notes</th></tr>
+                <tr><td><code>TextLoader</code></td><td><code>.txt</code> files</td><td>Simple, only plain text</td></tr>
+                <tr><td><code>PyPDFLoader</code></td><td>PDF files</td><td>Each page → one Document</td></tr>
+                <tr><td><code>DirectoryLoader</code></td><td>Folder of files</td><td>Batch loading</td></tr>
+                <tr><td><code>WebBaseLoader</code></td><td>Web URLs</td><td>Uses BeautifulSoup; static HTML only</td></tr>
+                <tr><td><code>CSVLoader</code></td><td>CSV files</td><td>One row → one Document</td></tr>
+                <tr><td><code>SeleniumURLLoader</code></td><td>JS-heavy pages</td><td>For dynamic content</td></tr>
+            </table>
+            
+            <h3>TextLoader</h3>
+            <pre><code>from langchain_community.document_loaders import TextLoader
+
+loader = TextLoader("notes.txt")
+docs = loader.load()  # Returns List[Document]</code></pre>
+            
+            <h3>PyPDFLoader</h3>
+            <pre><code>from langchain_community.document_loaders import PyPDFLoader
+
+loader = PyPDFLoader("document.pdf")
+pages = loader.load()  # One Document per page</code></pre>
+            <blockquote>
+                <strong>Limitation:</strong> Not great with scanned PDFs or complex layouts.
+            </blockquote>
+            
+            <h3>WebBaseLoader</h3>
+            <pre><code>from langchain_community.document_loaders import WebBaseLoader
+
+loader = WebBaseLoader("https://example.com/blog")
+docs = loader.load()</code></pre>
+            <blockquote>
+                <strong>Limitation:</strong> Doesn't handle JavaScript-heavy pages. For dynamic sites, use <code>SeleniumURLLoader</code>.
+            </blockquote>
+            
+            <h3>Load vs Lazy Load</h3>
+            <table>
+                <tr><th>Method</th><th>Behavior</th></tr>
+                <tr><td><code>.load()</code></td><td>Loads all documents into memory at once</td></tr>
+                <tr><td><code>.lazy_load()</code></td><td>Returns a generator — loads one at a time (memory efficient)</td></tr>
+            </table>
+            
+            <h2>Part 2 — Text Splitters</h2>
+            <p><strong>Text Splitting</strong> is the process of breaking large chunks of text into smaller, manageable <strong>chunks</strong> that an LLM or embedding model can handle effectively.</p>
+            
+            <h3>Why Split?</h3>
+            <ul>
+                <li>Overcome model input size limits</li>
+                <li>Improve retrieval precision (smaller chunks = more targeted results)</li>
+                <li>Optimize memory and computation</li>
+            </ul>
+            
+            <h3>4 Types of Text Splitting</h3>
+            <pre>
+┌──────────────────────────────────────────────────────────┐
+│              Text Splitting Strategies                    │
+│                                                          │
+│  1. Length Based      → Split by character/token count  │
+│  2. Text Structure    → Split by separators (\n, \n\n)  │
+│  3. Document Structure→ Split by Markdown/HTML sections │
+│  4. Semantic Meaning  → Split by meaning similarity     │
+└──────────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h4>1. Length-Based Splitting</h4>
+            <p>Split every N characters regardless of content.</p>
+            <pre><code>from langchain.text_splitter import CharacterTextSplitter
+
+splitter = CharacterTextSplitter(chunk_size=200, chunk_overlap=20)
+chunks = splitter.split_text(text)</code></pre>
+            
+            <h4>2. Text-Structure Based (RecursiveCharacterTextSplitter)</h4>
+            <p>Tries to split on natural boundaries: <code>\n\n</code> → <code>\n</code> → ` ` → character.</p>
+            <pre><code>from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = splitter.split_documents(docs)</code></pre>
+            
+            <h4>3. Document-Structure Based</h4>
+            <p>Respects document structure — splits on Markdown headers, HTML tags, etc.</p>
+            <pre><code>from langchain.text_splitter import MarkdownHeaderTextSplitter
+
+splitter = MarkdownHeaderTextSplitter(headers_to_split_on=[("#", "H1"), ("##", "H2")])</code></pre>
+            
+            <h4>4. Semantic Meaning Based</h4>
+            <p>Groups sentences that are semantically similar together — most intelligent but slowest.</p>
+            
+            <h2>Part 3 — Vector Stores</h2>
+            <p>A <strong>vector store</strong> is a system designed to <strong>store and retrieve data represented as numerical vectors</strong>.</p>
+            
+            <h3>Key Features</h3>
+            <table>
+                <tr><th>Feature</th><th>Description</th></tr>
+                <tr><td><strong>Storage</strong></td><td>Retain vectors + metadata in-memory or on-disk</td></tr>
+                <tr><td><strong>Similarity Search</strong></td><td>Find vectors most similar to a query vector</td></tr>
+                <tr><td><strong>Indexing</strong></td><td>Fast ANN (Approximate Nearest Neighbor) lookups</td></tr>
+                <tr><td><strong>CRUD Operations</strong></td><td>Add, read, update, delete vectors</td></tr>
+            </table>
+            
+            <h3>Vector Store vs Vector Database</h3>
+            <table>
+                <tr><th></th><th>Vector Store</th><th>Vector Database</th></tr>
+                <tr><td><strong>Scale</strong></td><td>Lightweight, prototyping</td><td>Production, large datasets</td></tr>
+                <tr><td><strong>Features</strong></td><td>Basic CRUD + search</td><td>Distributed, ACID, auth, backups</td></tr>
+                <tr><td><strong>Examples</strong></td><td>FAISS, Chroma</td><td>Pinecone, Milvus, Qdrant, Weaviate</td></tr>
+            </table>
+            
+            <h3>Chroma (Recommended for Development)</h3>
+            <p>Chroma is a <strong>lightweight, open-source</strong> vector database, ideal for local development and small-to-medium scale needs.</p>
+            <pre><code>from langchain_chroma import Chroma
+from langchain_openai import OpenAIEmbeddings
+
+vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=OpenAIEmbeddings()
+)</code></pre>
+            
+            <p>LangChain integrates with: FAISS, Pinecone, Chroma, Qdrant, Weaviate, and more. A <strong>common interface</strong> lets you swap backends with minimal code changes.</p>
+            
+            <h2>Part 4 — Retrievers</h2>
+            <p>A <strong>retriever</strong> is a component that <strong>fetches relevant documents</strong> from a data source in response to a user's query. All retrievers in LangChain are Runnables.</p>
+            
+            <h3>Types of Retrievers</h3>
+            <pre>
+┌──────────────────────────────────────────────────────────────┐
+│                     Retriever Types                          │
+├──────────────────────────┬───────────────────────────────────┤
+│  VectorStoreRetriever    │ Semantic similarity search        │
+│  WikipediaRetriever      │ Queries Wikipedia API             │
+│  MMR Retriever           │ Relevance + diversity balance     │
+│  MultiQueryRetriever     │ Generates multiple query variants │
+│  ContextualCompression   │ Compresses retrieved docs         │
+└──────────────────────────┴───────────────────────────────────┘
+            </pre>
+            
+            <h4>Vector Store Retriever (Most Common)</h4>
+            <pre><code>retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+docs = retriever.invoke("What is LangChain?")</code></pre>
+            
+            <h4>MMR — Maximal Marginal Relevance</h4>
+            <p>An algorithm that <strong>reduces redundancy</strong> while maintaining relevance. Instead of returning top-K most similar, it balances similarity with diversity.</p>
+            <pre><code>retriever = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={"k": 5, "fetch_k": 20}
+)</code></pre>
+            
+            <h4>Multi-Query Retriever</h4>
+            <p>Uses an LLM to <strong>generate multiple variants</strong> of the user's query, retrieves documents for each, and combines results for broader coverage.</p>
+            
+            <h4>Contextual Compression Retriever</h4>
+            <p>After retrieval, this retriever <strong>compresses documents</strong> — keeping only the relevant parts of each chunk based on the query. Reduces noise sent to LLM.</p>
+            
+            <h2>Part 5 — Full RAG Chain (LangChain Implementation)</h2>
+            <pre><code>from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from langchain.prompts import ChatPromptTemplate
+
+# Prompt
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant. Use the following context to answer the question.\n\nContext: {context}"),
+    ("human", "{question}")
+])
+
+# Format retrieved docs
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+# Full RAG Chain
+rag_chain = (
+    {
+        "context": retriever | format_docs,
+        "question": RunnablePassthrough()
+    }
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+answer = rag_chain.invoke("What is LangChain?")</code></pre>
+            
+            <h2>RAG Improvements</h2>
+            <p>For production RAG systems, consider these enhancements:</p>
+            
+            <h3>Evaluation</h3>
+            <ul>
+                <li><strong>Ragas</strong> — Evaluate with <code>faithfulness</code>, <code>answer_relevancy</code>, <code>context_precision</code>, <code>context_recall</code></li>
+                <li><strong>LangSmith</strong> — Tracing, debugging, and monitoring</li>
+            </ul>
+            
+            <h3>Pre-Retrieval</h3>
+            <ul>
+                <li>Query rewriting using LLM</li>
+                <li>Multi-query generation</li>
+                <li>Domain-aware routing</li>
+            </ul>
+            
+            <h3>During Retrieval</h3>
+            <ul>
+                <li>MMR (diversity)</li>
+                <li>Hybrid Retrieval (dense + sparse/BM25)</li>
+                <li>Reranking (secondary relevance model)</li>
+            </ul>
+            
+            <h3>Post-Retrieval</h3>
+            <ul>
+                <li>Contextual Compression</li>
+            </ul>
+            
+            <h3>Augmentation</h3>
+            <ul>
+                <li>Prompt templating</li>
+                <li>Answer grounding</li>
+                <li>Context window optimization</li>
+            </ul>
+            
+            <h3>Generation</h3>
+            <ul>
+                <li>Answer with citation</li>
+                <li>Guard railing (safety filters)</li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li>Multimodal RAG</li>
+                <li>Agentic RAG</li>
+                <li>Memory-based RAG</li>
+            </ul>
+        </div>
+        
+        <!-- Chapter Separator -->
+        <div class="chapter-separator page-break">
+            <div class="separator-content">
+                <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
+                <div class="separator-text">Chapter 10 — Tools & Tool Calling</div>
+            </div>
+        </div>
+        
+        <div class="content-page">
+            <h1>Chapter 10 — Tools & Tool Calling</h1>
+            
+            <h2>What is a Tool?</h2>
+            <p>A <strong>tool</strong> is just a Python function (or API) that is packaged in a way <strong>LLM can understand and call when needed</strong>.</p>
+            <pre>
+┌──────────────────────────────────────────────────────┐
+│                How Tools Fit in Agents               │
+│                                                      │
+│  User Query                                          │
+│      │                                               │
+│      ▼                                               │
+│  ┌─────────┐    decides to call    ┌──────────────┐ │
+│  │   LLM   │ ─────────────────────▶│    Tool      │ │
+│  │ (Agent) │                       │ (Python fn / │ │
+│  └─────────┘ ◀─────────────────── │  API)        │ │
+│      │          tool result        └──────────────┘ │
+│      ▼                                               │
+│  Final Answer                                        │
+└──────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h2>Built-in Tools</h2>
+            <p>A <strong>built-in tool</strong> is a tool that LangChain <strong>already provides for you</strong> — pre-built, production-ready, and requires minimal or no setup. You don't have to write the function logic yourself — you just <strong>import and use it</strong>.</p>
+            <table>
+                <tr><th>Tool</th><th>What It Does</th></tr>
+                <tr><td><code>DuckDuckGoSearchRun</code></td><td>Web search via DuckDuckGo</td></tr>
+                <tr><td><code>WikipediaQueryRun</code></td><td>Wikipedia summary</td></tr>
+                <tr><td><code>PythonREPLTool</code></td><td>Run raw Python code</td></tr>
+                <tr><td><code>ShellTool</code></td><td>Run shell commands</td></tr>
+                <tr><td><code>RequestsGetTool</code></td><td>Make HTTP GET requests</td></tr>
+                <tr><td><code>GmailSendMessageTool</code></td><td>Send emails via Gmail</td></tr>
+                <tr><td><code>SlackSendMessageTool</code></td><td>Post message to Slack</td></tr>
+                <tr><td><code>SQLDatabaseQueryTool</code></td><td>Run SQL queries</td></tr>
+            </table>
+            
+            <pre><code>from langchain_community.tools import DuckDuckGoSearchRun
+
+search = DuckDuckGoSearchRun()
+result = search.invoke("Latest news on LangChain")</code></pre>
+            
+            <h2>Custom Tools</h2>
+            <p>A <strong>custom tool</strong> is a tool that <strong>you define yourself</strong>. Use them when:</p>
+            <ul>
+                <li>You want to call <strong>your own APIs</strong></li>
+                <li>You want to <strong>encapsulate business logic</strong></li>
+                <li>You want LLM to interact with <strong>your database, product, or app</strong></li>
+            </ul>
+            
+            <h2>Ways to Create Custom Tools</h2>
+            <pre>
+┌─────────────────────────────────────────────────────┐
+│           Custom Tool Creation Methods              │
+│                                                     │
+│  1. @tool decorator     ← Simplest, most common     │
+│  2. StructuredTool      ← Multi-argument tools      │
+│  3. BaseTool class      ← Full control / advanced   │
+└─────────────────────────────────────────────────────┘
+            </pre>
+            
+            <h3>1. <code>@tool</code> Decorator</h3>
+            <p>The simplest way — just decorate a Python function and LangChain wraps it automatically.</p>
+            <pre><code>from langchain.tools import tool
+
+@tool
+def get_weather(city: str) -> str:
+    """Get current weather for a given city."""
+    # Your API call here
+    return f"Weather in {city}: Sunny, 25°C"</code></pre>
+            <p>The docstring becomes the tool's <strong>description</strong> — the LLM uses it to decide when to call the tool.</p>
+            
+            <h3>2. StructuredTool</h3>
+            <p>A <code>StructuredTool</code> is a special type of tool where the input follows a <strong>structured schema</strong>, typically defined using a Pydantic model. Use when your tool takes <strong>multiple typed arguments</strong>.</p>
+            <pre><code>from langchain.tools import StructuredTool
+from pydantic import BaseModel
+
+class WeatherInput(BaseModel):
+    city: str
+    unit: str = "celsius"
+
+def get_weather(city: str, unit: str = "celsius") -> str:
+    """Get weather for a city in specified unit."""
+    return f"Weather in {city}: 25°{unit[0].upper()}"
+
+tool = StructuredTool.from_function(
+    func=get_weather,
+    args_schema=WeatherInput
+)</code></pre>
+            
+            <h3>3. BaseTool (Abstract Base Class)</h3>
+            <p><code>BaseTool</code> is the <strong>abstract base class</strong> for all tools in LangChain. It defines the core structure and interface that any tool must follow.</p>
+            <blockquote>
+                All other tool types like <code>@tool</code> and <code>StructuredTool</code> are built on top of <code>BaseTool</code>.
+            </blockquote>
+            <p>Use <code>BaseTool</code> when you need:</p>
+            <ul>
+                <li>Full control over tool behavior and error handling</li>
+                <li>Async tool execution</li>
+                <li>Custom tool logic that doesn't fit a simple function</li>
+            </ul>
+            
+            <pre><code>from langchain.tools import BaseTool
+from typing import Optional
+
+class CurrencyConverterTool(BaseTool):
+    name: str = "currency_converter"
+    description: str = "Converts an amount from one currency to another"
+
+    def _run(self, amount: float, from_currency: str, to_currency: str) -> str:
+        # Your conversion logic here
+        return f"{amount} {from_currency} = X {to_currency}"
+
+    async def _arun(self, *args, **kwargs):
+        raise NotImplementedError("Async not supported")</code></pre>
+            
+            <h3>Inheritance Hierarchy</h3>
+            <pre>
+BaseTool  (abstract base)
+    │
+    ├── @tool  (decorator — simplest)
+    │
+    └── StructuredTool  (Pydantic schema input)
+            </pre>
+            
+            <h2>Toolkits</h2>
+            <p>A <strong>toolkit</strong> is a <strong>collection (bundle) of related tools</strong> that serve a common purpose — packaged together for <strong>convenience and reusability</strong>.</p>
+            <pre>
+GoogleDriveToolKit
+    │
+    ├── GoogleDriveCreateFileTool   → Upload a file
+    ├── GoogleDriveSearchTool       → Search by name/content
+    └── GoogleDriveReadFileTool     → Read file contents
+            </pre>
+            
+            <pre><code>from langchain_google_community import GoogleDriveToolkit
+
+toolkit = GoogleDriveToolkit()
+tools = toolkit.get_tools()  # List of individual tool objects</code></pre>
+            
+            <h2>Tool Calling Pipeline</h2>
+            
+            <h3>Step 1 — Tool Binding</h3>
+            <p>Tell the LLM which tools are available.</p>
+            <pre><code>llm_with_tools = llm.bind_tools([get_weather, search_web])</code></pre>
+            
+            <h3>Step 2 — Tool Calling</h3>
+            <p>The LLM decides to call a tool and returns a structured tool call instead of a text response.</p>
+            <pre><code>response = llm_with_tools.invoke("What's the weather in Delhi?")
+# response contains tool_calls, not final answer yet</code></pre>
+            
+            <h3>Step 3 — Tool Execution</h3>
+            <p>Extract the tool call, execute the actual function, and return the result.</p>
+            <pre><code>tool_call = response.tool_calls[0]
+tool_name = tool_call["name"]
+tool_args = tool_call["args"]
+
+# Execute tool
+result = tool_map[tool_name].invoke(tool_args)</code></pre>
+            
+            <h3>Full Tool Calling Flow</h3>
+            <pre>
+User Query
+    │
+    ▼
+LLM (with tools bound)
+    │
+    ├── If no tool needed → Direct Answer
+    │
+    └── If tool needed
+            │
+            ▼
+        Tool Call (name + args)
+            │
+            ▼
+        Tool Execution (Python function)
+            │
+            ▼
+        Tool Result
+            │
+            ▼
+        LLM (with result as context)
+            │
+            ▼
+        Final Answer
+            </pre>
+        </div>
+        
+        <!-- Thank You Page -->
+        <div class="thank-you-page page-break">
+            <div class="thank-you-overlay"></div>
+            <div class="thank-you-content">
+                <h1 class="thank-you-title">Thank You!</h1>
+                <p class="thank-you-subtitle">We hope you enjoyed this comprehensive guide to Modern AI Applications</p>
+                
+                <h2 class="reference-title">Reference</h2>
+                <div class="reference-links">
+                    <div class="reference-item">
+                        <strong>O'Reilly Hands-On Generative AI with Transformers and Diffusion Models:</strong>
+                        <a href="https://www.oreilly.com/library/view/hands-on-generative-ai/9781098149239/" target="_blank">https://www.oreilly.com/library/view/hands-on-generative-ai/9781098149239/</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks:</strong>
+                        <a href="https://arxiv.org/abs/2005.11401" target="_blank">https://arxiv.org/abs/2005.11401</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>Regulating AI Agents:</strong>
+                        <a href="https://arxiv.org/abs/2603.23471" target="_blank">https://arxiv.org/abs/2603.23471</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>LangChain:</strong>
+                        <a href="https://docs.langchain.com/" target="_blank">https://docs.langchain.com/</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>YouTube:</strong>
+                        <a href="https://www.youtube.com/@captiandaasAI" target="_blank">https://www.youtube.com/@captiandaasAI</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>Medium:</strong>
+                        <a href="https://medium.com/@cpt1995daas" target="_blank">https://medium.com/@cpt1995daas</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>GitHub:</strong>
+                        <a href="https://github.com/Cptdaas" target="_blank">https://github.com/Cptdaas</a>
+                    </div>
+                    <div class="reference-item">
+                        <strong>LinkedIn:</strong>
+                        <a href="https://www.linkedin.com/in/cptvinod/" target="_blank">https://www.linkedin.com/in/cptvinod/</a>
+                    </div>
+                </div>
+                
+                <div class="author-info">
+                    <div class="author-name">Vinod Tiwari</div>
+                    <div class="author-links">
+                        <a href="https://www.linkedin.com/in/cptvinod/" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/Cptdaas" target="_blank">GitHub</a>
+                        <a href="https://medium.com/@cpt1995daas" target="_blank">Medium</a>
+                        <a href="https://www.youtube.com/@captiandaasAI" target="_blank">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

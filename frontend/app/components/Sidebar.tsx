@@ -13,7 +13,7 @@ export default function Sidebar() {
       {/* Explore Button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed top-6 right-6 border border-gray-700 px-4 py-2 rounded-lg hover:border-red-600 transition"
+        className="fixed top-6 right-6 bg-red-600/90 backdrop-blur-sm border border-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-500 hover:scale-105 transition-all duration-300 shadow-lg shadow-red-600/30 font-semibold tracking-wide z-50"
       >
         Explore
       </button>
@@ -53,6 +53,13 @@ export default function Sidebar() {
               <h3 className="text-sm text-gray-500 mb-4 tracking-widest">
                 RESEARCH & MEDIA
               </h3>
+
+              <Link
+                href="/book"
+                className="block text-lg text-gray-300 hover:text-red-500 transition mb-3"
+              >
+                GenAI Book
+              </Link>
 
               <a
                 href="https://medium.com/@cpt1995daas"
