@@ -1,6 +1,19 @@
 version: '3.9'
 
 services:
+  backend:
+    build: ./backend
+    container_name: portfolio_backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/portfolio
+    depends_on:
+      - db
+
   db:
     image: postgres:15
     container_name: portfolio_db
@@ -14,27 +27,27 @@ services:
     ports:
       - "5432:5432"
 
-  backend:
-    build: ./backend
-    container_name: portfolio_backend
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-    volumes:
-      - ./backend:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
+  # backend:
+  #   build: ./backend
+  #   container_name: portfolio_backend
+  #   command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+  #   volumes:
+  #     - ./backend:/app
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
 
-  frontend:
-    build: ./frontend
-    container_name: portfolio_frontend
-    command: npm run dev
-    volumes:
-      - ./frontend:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
+  # frontend:
+  #   build: ./frontend
+  #   container_name: portfolio_frontend
+  #   command: npm run dev
+  #   volumes:
+  #     - ./frontend:/app
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - backend
 
 volumes:
   pgdata:
