@@ -554,159 +554,7 @@
         </div>
     </div>
 
-    <!-- Chapter 01 -->
-    <div class="content-page">
-        <div class="chapter-separator">
-            <div class="separator-content">
-                <div class="book-name">FullGenAICourse</div>
-                <div class="separator-text">Chapter 01 — Introduction to LangChain</div>
-            </div>
-        </div>
-        
-        <h1>Chapter 01 — Introduction to LangChain</h1>
-        
-        <h2>What is LangChain?</h2>
-        <p>LangChain is an <strong>open-source framework</strong> for developing applications powered by large language models (LLMs). It provides modular components and end-to-end tools that help developers build complex AI applications such as chatbots, question-answering systems, RAG, autonomous agents, and more.</p>
-        
-        <h3>Key Advantages</h3>
-        <table>
-            <tr><th>#</th><th>Feature</th></tr>
-            <tr><td>1</td><td>Supports all major LLMs</td></tr>
-            <tr><td>2</td><td>Simplifies LLM-based application development</td></tr>
-            <tr><td>3</td><td>Integrations for all major tools</td></tr>
-            <tr><td>4</td><td>Open source / Free / Actively developed</td></tr>
-            <tr><td>5</td><td>Supports all major GenAI use cases</td></tr>
-        </table>
-        
-        <h2>Why LangChain?</h2>
-        <p>Without LangChain, building an AI app that reads a PDF, answers questions, and remembers context requires manually wiring together LLM APIs, document parsing, embedding pipelines, vector databases, and memory. LangChain abstracts all of this with a unified, composable interface.</p>
-        
-        <p><strong>Example queries LangChain can power:</strong></p>
-        <ul>
-            <li>"Explain page number 5 as if I am a 5 year old"</li>
-            <li>"Generate a True/False exercise on Linear Regression"</li>
-            <li>"Generate notes for Decision Trees"</li>
-        </ul>
-        
-        <h2>What Can You Build?</h2>
-        <pre>
-┌─────────────────────────────────────────────────────┐
-│                LangChain Applications                │
-├─────────────────────┬───────────────────────────────┤
-│ Conversational      │  AI Knowledge Assistants       │
-│ Chatbots            │  (RAG-powered Q&A)             │
-├─────────────────────┼───────────────────────────────┤
-│ AI Agents           │  Workflow Automation            │
-│ (Tool-using)        │  (multi-step pipelines)        │
-├─────────────────────┴───────────────────────────────┤
-│         Summarization / Research Helpers             │
-└─────────────────────────────────────────────────────┘
-        </pre>
-        
-        <h2>Alternatives</h2>
-        <table>
-            <tr><th>Framework</th><th>Focus</th></tr>
-            <tr><td><strong>LlamaIndex</strong></td><td>Data indexing and RAG</td></tr>
-            <tr><td><strong>Haystack</strong></td><td>Production-ready NLP pipelines</td></tr>
-        </table>
-        
-        <p>LangChain is preferred for breadth — covering everything from simple LLM calls to complex agentic workflows.</p>
-        
-        <h2>Benefits of LangChain</h2>
-        <ul>
-            <li><strong>Concept of Chains</strong> — compose steps into pipelines</li>
-            <li><strong>Model Agnostic Development</strong> — swap LLMs without rewriting logic</li>
-            <li><strong>Complete Ecosystem</strong> — loaders, splitters, stores, agents, tools</li>
-            <li><strong>Memory and State Handling</strong> — maintain conversation context</li>
-        </ul>
-    </div>
-
-    <!-- Chapter 02 -->
-    <div class="content-page page-break">
-        <div class="chapter-separator">
-            <div class="separator-content">
-                <div class="book-name">FullGenAICourse</div>
-                <div class="separator-text">Chapter 02 — LangChain Components</div>
-            </div>
-        </div>
-        
-        <h1>Chapter 02 — LangChain Components</h1>
-        
-        <p>LangChain is built from six core components that work together to create powerful LLM-based applications.</p>
-        
-        <h2>Component Map</h2>
-        <pre>
-┌─────────────────────────────────────────────────────────────────┐
-│                      LangChain Components                        │
-│                                                                  │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐   │
-│  │  Models  │  │ Prompts  │  │  Chains  │  │   Indexes    │   │
-│  │          │  │          │  │          │  │              │   │
-│  │ LLM      │  │ Dynamic  │  │ Simple   │  │ PDFs/Webs/   │   │
-│  │ Chat     │  │ Role-    │  │ Sequent. │  │ DBs →        │   │
-│  │ Embed.   │  │ Based    │  │ Parallel │  │ VectorStore  │   │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────────┘   │
-│                                                                  │
-│  ┌──────────────────────────┐  ┌──────────────────────────┐    │
-│  │         Memory           │  │          Agents          │    │
-│  │                          │  │                          │    │
-│  │ ConversationBuffer       │  │ Tool-using LLM that      │    │
-│  │ BufferWindow             │  │ reasons + acts in        │    │
-│  │ Summarizer               │  │ multi-step loops         │    │
-│  │ Custom                   │  │                          │    │
-│  └──────────────────────────┘  └──────────────────────────┘    │
-└─────────────────────────────────────────────────────────────────┘
-        </pre>
-        
-        <h2>1. Models</h2>
-        <p>Core interfaces to interact with AI models — LLMs, Chat Models, and Embedding Models. Abstracts the complexity of working with different providers under a <strong>uniform interface</strong>.</p>
-        
-        <h2>2. Prompts</h2>
-        <p>Structured, reusable ways to construct inputs for models.</p>
-        <ul>
-            <li><strong>Dynamic & Reusable Prompts</strong> — inject variables at runtime</li>
-            <li><strong>Role-Based Prompts</strong> — system / user / assistant messages</li>
-            <li><strong>Few-Shot Prompting</strong> — provide examples in the prompt</li>
-        </ul>
-        
-        <h2>3. Chains</h2>
-        <p>A <strong>chain</strong> connects multiple components into a pipeline. Output of one step flows as input to the next.</p>
-        <pre>Input → [Prompt Template] → [LLM] → [Output Parser] → Result</pre>
-        
-        <h2>4. Indexes</h2>
-        <p>Indexes connect your application to <strong>external knowledge</strong> — PDFs, websites, databases.</p>
-        <pre>Raw Docs → Loader → Splitter → Embeddings → Vector Store → Retriever</pre>
-        
-        <h2>5. Memory</h2>
-        <p>LLM API calls are <strong>stateless</strong> by default — they don't remember previous turns. Memory components solve this:</p>
-        <table>
-            <tr><th>Memory Type</th><th>Description</th></tr>
-            <tr><td>ConversationBufferMemory</td><td>Stores full transcript of recent messages</td></tr>
-            <tr><td>ConversationBufferWindowMemory</td><td>Keeps only last N interactions</td></tr>
-            <tr><td>Summarizer-Based Memory</td><td>Periodically summarizes older segments</td></tr>
-            <tr><td>Custom Memory</td><td>Store user preferences, key facts, etc.</td></tr>
-        </table>
-        
-        <h2>6. Agents</h2>
-        <p>An AI agent is an <strong>LLM-powered system</strong> that can autonomously think, decide, and take actions using external tools or APIs to achieve a goal.</p>
-        <pre>
-User Goal
-    │
-    ▼
-┌─────────┐    ┌──────────────┐    ┌──────────────┐
-│  LLM    │───▶│   Reasoning  │───▶│  Tool Call   │
-│         │    │   (Thought)  │    │  (Action)    │
-└─────────┘    └──────┬───────┘    └──────┬───────┘
-                      │                   │
-                      ◀───── Observation ─┘
-                      │
-                 (repeat until done)
-                      │
-                      ▼
-                Final Answer
-        </pre>
-        
-        <!-- Chapter Separator -->
+<!-- Chapter Separator -->
         <div class="chapter-separator page-break">
             <div class="separator-content">
                 <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
@@ -733,7 +581,7 @@ User Goal
             <h2>Why LangChain?</h2>
             <p>Without LangChain, building an AI app that reads a PDF, answers questions, and remembers context requires manually wiring together LLM APIs, document parsing, embedding pipelines, vector databases, and memory. LangChain abstracts all of this with a unified, composable interface.</p>
             
-            <h3>Example queries LangChain can power:</h3>
+            <p><strong>Example queries LangChain can power:</strong></p>
             <ul>
                 <li>"Explain page number 5 as if I am a 5 year old"</li>
                 <li>"Generate a True/False exercise on Linear Regression"</li>
@@ -772,8 +620,8 @@ User Goal
                 <li><strong>Memory and State Handling</strong> — maintain conversation context</li>
             </ul>
         </div>
-        
-        <!-- Chapter Separator -->
+
+<!-- Chapter Separator -->
         <div class="chapter-separator page-break">
             <div class="separator-content">
                 <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
@@ -783,6 +631,7 @@ User Goal
         
         <div class="content-page">
             <h1>Chapter 02 — LangChain Components</h1>
+            
             <p>LangChain is built from six core components that work together to create powerful LLM-based applications.</p>
             
             <h2>Component Map</h2>
@@ -857,8 +706,8 @@ User Goal
                 Final Answer
             </pre>
         </div>
-        
-        <!-- Chapter Separator -->
+
+<!-- Chapter Separator -->
         <div class="chapter-separator page-break">
             <div class="separator-content">
                 <div class="book-name">FullGenAI Course - Complete Guide to Modern AI Applications</div>
