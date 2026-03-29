@@ -50,8 +50,10 @@ export default function BookPage() {
           min-height: 100vh !important;
           height: auto !important;
           background: url('/genAI1.jpg') center/cover no-repeat !important;
-          background-position: center !important;
+          background-position: center center !important;
           background-size: cover !important;
+          background-repeat: no-repeat !important;
+          background-attachment: scroll !important;
           display: flex !important;
           flex-direction: column !important;
           justify-content: center !important;
@@ -245,6 +247,42 @@ export default function BookPage() {
           word-wrap: break-word !important;
         }
         
+        /* Tablet-specific optimizations */
+        @media (min-width: 768px) and (max-width: 1024px) {
+          .responsive-book-container .title-page {
+            background-size: cover !important;
+            background-position: center center !important;
+            background-attachment: scroll !important;
+          }
+          
+          .responsive-book-container .main-title { 
+            font-size: 4.5vw !important; 
+            padding: 0.8rem 1rem !important;
+          }
+          
+          .responsive-book-container .subtitle { 
+            font-size: 2.8vw !important; 
+          }
+          
+          .responsive-book-container .author-info {
+            max-width: 80% !important;
+            padding: 1.5rem !important;
+          }
+          
+          /* Ensure dark code blocks on iPad */
+          .responsive-book-container code {
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+          
+          .responsive-book-container pre {
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+        }
+        
         /* Mobile breakpoints */
         @media (max-width: 768px) {
           .responsive-book-container .main-title { font-size: 4vw !important; }
@@ -257,8 +295,19 @@ export default function BookPage() {
           .responsive-book-container h3 { font-size: 2.5vw !important; }
           .responsive-book-container p { font-size: 2.2vw !important; }
           .responsive-book-container li { font-size: 2.2vw !important; }
-          .responsive-book-container code { font-size: 1.8vw !important; }
-          .responsive-book-container pre { font-size: 1.8vw !important; }
+          .responsive-book-container code { 
+            font-size: 1.8vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+          .responsive-book-container pre { 
+            font-size: 1.8vw !important; 
+            padding: 1rem !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
           .responsive-book-container th,
           .responsive-book-container td { font-size: 1.8vw !important; }
         }
@@ -274,10 +323,21 @@ export default function BookPage() {
           .responsive-book-container h3 { font-size: 2vw !important; }
           .responsive-book-container p { font-size: 2vw !important; }
           .responsive-book-container li { font-size: 2vw !important; }
-          .responsive-book-container code { font-size: 1.5vw !important; }
-          .responsive-book-container pre { font-size: 1.5vw !important; }
-          .responsive-book-container th,
-          .responsive-book-container td { font-size: 1.5vw !important; }
+          
+          /* Ensure dark code blocks on small mobile */
+          .responsive-book-container code { 
+            font-size: 1.5vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+          
+          .responsive-book-container pre { 
+            font-size: 1.5vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
         }
         
         @media (max-width: 375px) {
@@ -285,8 +345,21 @@ export default function BookPage() {
           .responsive-book-container .subtitle { font-size: 1.8vw !important; }
           .responsive-book-container p { font-size: 1.8vw !important; }
           .responsive-book-container li { font-size: 1.8vw !important; }
-          .responsive-book-container code { font-size: 1.3vw !important; }
-          .responsive-book-container pre { font-size: 1.3vw !important; }
+          
+          /* Ensure dark code blocks on iPhone SE */
+          .responsive-book-container code { 
+            font-size: 1.3vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+          
+          .responsive-book-container pre { 
+            font-size: 1.3vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
         }
         
         @media (max-width: 320px) {
@@ -294,8 +367,21 @@ export default function BookPage() {
           .responsive-book-container .subtitle { font-size: 1.5vw !important; }
           .responsive-book-container p { font-size: 1.6vw !important; }
           .responsive-book-container li { font-size: 1.6vw !important; }
-          .responsive-book-container code { font-size: 1.2vw !important; }
-          .responsive-book-container pre { font-size: 1.2vw !important; }
+          
+          /* Ensure dark code blocks on small phones */
+          .responsive-book-container code { 
+            font-size: 1.2vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
+          
+          .responsive-book-container pre { 
+            font-size: 1.2vw !important;
+            background: #1a202c !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #2d3748 !important;
+          }
         }
       `}</style>
       <div className="responsive-book-container">
