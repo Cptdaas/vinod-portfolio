@@ -55,6 +55,13 @@ export default function Sidebar() {
               </h3>
 
               <Link
+                href="/blog"
+                className="block text-lg text-gray-300 hover:text-red-500 transition mb-3"
+              >
+                Blog
+              </Link>
+
+              <Link
                 href="/book"
                 className="block text-lg text-gray-300 hover:text-red-500 transition mb-3"
               >
