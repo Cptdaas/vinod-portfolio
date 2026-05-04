@@ -126,7 +126,7 @@ export default function Sidebar() {
               </h3>
 
               <a
-                href="/Vinod_Tiwari_Resume.pdf"
+                href="/VinodResume2026.pdf"
                 download
                 className="flex items-center gap-3 text-lg text-gray-300 hover:text-red-500 transition"
               >

@@ -7,6 +7,12 @@ import Sidebar from "./components/Sidebar";
 
 // Recognition Data
 const recognitionData = {
+  "WACV 2024 (IEEE) Research Publication": {
+    title: "WACV 2024 (IEEE) Research Publication",
+    count: "Co-Contributor",
+    years: "2024",
+    details: "Published research paper on retail taxonomy classification using Progressive Multi-Task Learning (PMTL), addressing hierarchical label inconsistency in large-scale product datasets. Resolved error propagation using logit masking, improving fine-grained retrieval efficiency."
+  },
   "TCS Golden Guru Gala Award": {
     title: "TCS Golden Guru Gala Award",
     count: "3-Time Recipient",
@@ -72,22 +78,24 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-10 text-gray-300 text-lg">
 
           <div className="space-y-4 border border-gray-800 p-8 hover:border-red-600 transition">
-            <h4 className="text-xl font-semibold text-white">Deloitte</h4>
+            <h4 className="text-xl font-semibold text-white">Deloitte USI</h4>
+            <p className="text-sm text-gray-500">Senior AI Engineer | Generative AI & Agentic Systems Architect</p>
             <ul className="list-disc list-inside space-y-2">
-              <li>Architected multi-agent LLM systems using LangGraph & MCP</li>
-              <li>Built Graph RAG pipeline for supply chain intelligence</li>
-              <li>Designed PostgreSQL VectorDB embedding infrastructure</li>
-              <li>Deployed scalable AI systems on AWS</li>
+              <li>Architected Agentic AI multi-agent CSR system (90%+ SME accuracy, 60-70% efficiency gain)</li>
+              <li>Built Graph RAG pipeline on AWS Neptune (92% retrieval precision, 45% latency reduction)</li>
+              <li>Developed Project Intelligence Platform for cost estimation (50% accuracy improvement)</li>
+              <li>Implemented RAG-based AI Chat Plugin for Salesforce (40% auto-resolution boost)</li>
             </ul>
           </div>
 
           <div className="space-y-4 border border-gray-800 p-8 hover:border-red-600 transition">
-            <h4 className="text-xl font-semibold text-white">TCS</h4>
+            <h4 className="text-xl font-semibold text-white">Tata Consultancy Services</h4>
+            <p className="text-sm text-gray-500">Data Scientist | AI/ML Engineer</p>
             <ul className="list-disc list-inside space-y-2">
-              <li>Reduced inference cost via model quantization</li>
-              <li>Delivered OCR pipeline with 95%+ accuracy</li>
-              <li>Fine-tuned DL models achieving 98.9% performance</li>
-              <li>Built demand forecasting models (ARIMA, Ridge, Lasso)</li>
+              <li>Reduced inference cost by 30%+ via model quantization (AMD framework)</li>
+              <li>Delivered OCR pipeline with 95%+ accuracy (30% improvement)</li>
+              <li>Fine-tuned CNN models achieving 98.9% classification accuracy</li>
+              <li>Co-contributed to IEEE WACV 2024 research on taxonomy classification</li>
             </ul>
           </div>
 

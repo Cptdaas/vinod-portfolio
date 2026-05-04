@@ -160,7 +160,12 @@ const skills = [
   "LangGraph & MCP",
   "LLM Orchestration",
   "AWS ML Pipelines",
+  "Amazon Neptune Graph DB",
   "PostgreSQL VectorDB",
+  "LlamaIndex",
+  "LLM Guardrails",
+  "Model Context Protocol",
+  "Salesforce AI Integration",
   "FastAPI & Docker",
   "TensorFlow / PyTorch",
   "OCR & Computer Vision",
@@ -169,6 +174,12 @@ const skills = [
 
 // Recognition Data with detailed information
 const recognitionData = {
+  "WACV 2024 (IEEE) Research Publication": {
+    title: "WACV 2024 (IEEE) Research Publication",
+    count: "Co-Contributor",
+    years: "2024",
+    details: "Published research paper on retail taxonomy classification using Progressive Multi-Task Learning (PMTL), addressing hierarchical label inconsistency in large-scale product datasets. Resolved error propagation using logit masking, improving fine-grained retrieval efficiency."
+  },
   "TCS Golden Guru Gala Award": {
     title: "TCS Golden Guru Gala Award",
     count: "3-Time Recipient",
