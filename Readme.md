@@ -1,4 +1,4 @@
-# 🚀 Vinod Tiwari – AI Architect Portfolio
+# Vinod Tiwari – AI Architect Portfolio
 
 This is the official personal portfolio website of **Vinod Tiwari**, AI Architect and Data Scientist specializing in:
 
@@ -10,7 +10,7 @@ This is the official personal portfolio website of **Vinod Tiwari**, AI Architec
 
 ---
 
-## 🔥 Tech Stack
+##  Tech Stack
 
 **Frontend**
 - Next.js 16
@@ -32,7 +32,7 @@ This is the official personal portfolio website of **Vinod Tiwari**, AI Architec
 
 ---
 
-## 🎬 Theme
+##  Theme
 
 The landing page follows a neo-noir cinematic theme inspired by a minimalistic tactical aesthetic:
 
@@ -45,7 +45,7 @@ The design reflects precision, structure, and architectural thinking.
 
 ---
 
-## 🌐 Features
+##  Features
 
 - Professional landing page
 - **GenAI Book** - Complete guide to modern AI applications (fully responsive)
@@ -59,7 +59,7 @@ The design reflects precision, structure, and architectural thinking.
 
 ---
 
-## 📱 Responsive Design
+## Responsive Design
 
 The portfolio is fully optimized for all devices:
 
@@ -161,7 +161,7 @@ The book contains:
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Production Architecture
 - **Frontend**: Deployed on Vercel (serverless)
