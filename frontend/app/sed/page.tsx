@@ -100,10 +100,162 @@ export default function SEDPage() {
     interests: ""
   });
 
+  const [ideaData, setIdeaData] = useState({
+    name: "",
+    idea: "",
+    type: "idea"
+  });
+
+  const [memberData, setMemberData] = useState({
+    fullName: "",
+    email: "",
+    profession: "",
+    organization: "",
+    country: "",
+    linkedin: "",
+    interests: ""
+  });
+
+  const [submittedIdeas, setSubmittedIdeas] = useState<Array<{
+    name: string;
+    idea: string;
+    type: string;
+    timestamp: string;
+  }>>([
+    {
+      name: "Dr. Sarah Chen",
+      idea: "AI-powered diagnostic tool for early detection of neurological disorders using EEG patterns",
+      type: "idea",
+      timestamp: "2026-01-10"
+    },
+    {
+      name: "Prof. James Wilson",
+      idea: "Need for affordable portable ultrasound devices for remote healthcare in rural areas",
+      type: "problem",
+      timestamp: "2026-01-08"
+    }
+  ]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     alert("Thank you for joining SED! We'll be in touch soon.");
+  };
+
+  const handleIdeaSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (ideaData.name && ideaData.idea) {
+      const newIdea = {
+        name: ideaData.name,
+        idea: ideaData.idea,
+        type: ideaData.type,
+        timestamp: new Date().toISOString().split('T')[0]
+      };
+      setSubmittedIdeas([newIdea, ...submittedIdeas]);
+      setIdeaData({ name: "", idea: "", type: "idea" });
+      alert("Thank you for sharing your idea/problem!");
+    }
+  };
+
+  // Backend-ready API functions (placeholder for future implementation)
+  const registerMemberAPI = async (memberData: any) => {
+    // TODO: Replace with actual API call when backend is ready
+    // const response = await fetch('/api/register-member', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(memberData)
+    // });
+    // return response.json();
+    
+    // Simulate API response for now
+    return {
+      success: true,
+      memberId: `SED-${Date.now()}`,
+      message: "Member registered successfully"
+    };
+  };
+
+  const generateCertificateAPI = async (memberId: string, memberName: string) => {
+    // TODO: Replace with actual API call when backend is ready
+    // const response = await fetch('/api/generate-certificate', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ memberId, memberName })
+    // });
+    // return response.json();
+    
+    // Simulate certificate generation for now
+    return {
+      success: true,
+      certificateUrl: `/certificates/${memberId}.pdf`,
+      message: "Certificate generated successfully"
+    };
+  };
+
+  const sendCertificateEmailAPI = async (email: string, certificateUrl: string) => {
+    // TODO: Replace with actual API call when backend is ready
+    // const response = await fetch('/api/send-certificate', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email, certificateUrl })
+    // });
+    // return response.json();
+    
+    // Simulate email sending for now
+    return {
+      success: true,
+      message: "Certificate sent to email successfully"
+    };
+  };
+
+  // Certificate generation function (frontend for now, backend-ready)
+  const generateCertificate = (memberName: string, memberId: string) => {
+    // This is a frontend placeholder. In production, this would be handled by backend
+    // using libraries like PDFKit, jsPDF, or puppeteer
+    const certificateData = {
+      memberName,
+      memberId,
+      issueDate: new Date().toLocaleDateString(),
+      organization: "Society of Engineers & Doctors (SED)",
+      title: "Certificate of Membership"
+    };
+    
+    console.log("Certificate generated:", certificateData);
+    return certificateData;
+  };
+
+  const handleMemberRegistration = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Step 1: Register member
+      const registrationResult = await registerMemberAPI(memberData);
+      
+      if (registrationResult.success) {
+        // Step 2: Generate certificate
+        const certificate = generateCertificate(memberData.fullName, registrationResult.memberId);
+        const certResult = await generateCertificateAPI(registrationResult.memberId, memberData.fullName);
+        
+        // Step 3: Send certificate via email
+        const emailResult = await sendCertificateEmailAPI(memberData.email, certResult.certificateUrl);
+        
+        if (emailResult.success) {
+          alert(`Welcome to SED! Your member ID is ${registrationResult.memberId}. Certificate has been sent to ${memberData.email}`);
+          setMemberData({
+            fullName: "",
+            email: "",
+            profession: "",
+            organization: "",
+            country: "",
+            linkedin: "",
+            interests: ""
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Registration failed. Please try again.");
+    }
   };
 
   const focusAreas = [
@@ -165,7 +317,7 @@ export default function SEDPage() {
       }}
     >
       {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/35 to-blue-900/40 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-white/10 pointer-events-none"></div>
       
       {/* Content Wrapper */}
       <div className="relative z-10">
@@ -199,23 +351,25 @@ export default function SEDPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 flex items-center justify-center gap-3">
+              <span className="text-red-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">✚</span>
               Society of Engineers & Doctors
             </h1>
-            <h2 className="text-xl sm:text-2xl text-blue-300 mb-4 sm:mb-6 font-semibold">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6 font-bold tracking-wide italic">
               Where Medicine Meets Engineering
             </h2>
             <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed">
               Connecting doctors, engineers, researchers, students, healthcare professionals, AI experts, and innovators to solve real-world healthcare challenges through collaboration, research, and technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold transition text-sm sm:text-base"
+              <a
+                href="https://chat.whatsapp.com/H1djk2CIGs00bJ7AGuQzY1?mode=gi_t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold transition text-sm sm:text-base"
               >
-                Join the Community
-              </motion.button>
+                Join WhatsApp Community
+              </a>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -224,7 +378,7 @@ export default function SEDPage() {
                 Learn More
               </motion.button>
               <a
-                href="https://www.linkedin.com/in/cptvinod/"
+                href="https://www.linkedin.com/company/society-of-engineers-doctors-sed/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold transition text-sm sm:text-base"
@@ -747,6 +901,215 @@ export default function SEDPage() {
               Join SED
             </motion.button>
           </motion.form>
+        </div>
+      </section>
+
+      {/* Register as Member Section */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-3 sm:mb-4"
+          >
+            Register as SED Member
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-gray-300 text-center mb-8 sm:mb-12 text-sm sm:text-base"
+          >
+            Become an official member and receive your membership certificate via email.
+          </motion.p>
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            onSubmit={handleMemberRegistration}
+            className="bg-white/10 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6"
+          >
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Full Name</label>
+              <input
+                type="text"
+                required
+                value={memberData.fullName}
+                onChange={(e) => setMemberData({ ...memberData, fullName: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Email (for certificate)</label>
+              <input
+                type="email"
+                required
+                value={memberData.email}
+                onChange={(e) => setMemberData({ ...memberData, email: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="Enter your email address"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Profession</label>
+              <input
+                type="text"
+                required
+                value={memberData.profession}
+                onChange={(e) => setMemberData({ ...memberData, profession: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="e.g., Doctor, Engineer, Researcher"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Organization</label>
+              <input
+                type="text"
+                value={memberData.organization}
+                onChange={(e) => setMemberData({ ...memberData, organization: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="Your organization (optional)"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Country</label>
+              <input
+                type="text"
+                value={memberData.country}
+                onChange={(e) => setMemberData({ ...memberData, country: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="Your country"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">LinkedIn Profile</label>
+              <input
+                type="url"
+                value={memberData.linkedin}
+                onChange={(e) => setMemberData({ ...memberData, linkedin: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                placeholder="https://linkedin.com/in/yourprofile"
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2 font-medium text-sm sm:text-base">Areas of Interest</label>
+              <textarea
+                value={memberData.interests}
+                onChange={(e) => setMemberData({ ...memberData, interests: e.target.value })}
+                className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition h-20 sm:h-24 resize-none text-sm sm:text-base"
+                placeholder="Tell us about your interests in healthcare and technology"
+              />
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="w-full bg-green-500 hover:bg-green-600 text-white py-3 sm:py-4 rounded-lg font-semibold transition text-sm sm:text-base"
+            >
+              Register & Get Certificate
+            </motion.button>
+          </motion.form>
+        </div>
+      </section>
+
+      {/* Ideas & Problems Section */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-blue-800/50">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12"
+          >
+            Share Your Ideas & Medical Problems
+          </motion.h2>
+
+          {/* Submission Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-white/10 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12"
+          >
+            <form onSubmit={handleIdeaSubmit} className="space-y-4 sm:space-y-6">
+              <div>
+                <label className="block text-white mb-2 font-medium text-sm sm:text-base">Your Name</label>
+                <input
+                  type="text"
+                  required
+                  value={ideaData.name}
+                  onChange={(e) => setIdeaData({ ...ideaData, name: e.target.value })}
+                  className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div>
+                <label className="block text-white mb-2 font-medium text-sm sm:text-base">Type</label>
+                <select
+                  value={ideaData.type}
+                  onChange={(e) => setIdeaData({ ...ideaData, type: e.target.value })}
+                  className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white focus:outline-none focus:border-blue-400 transition text-sm sm:text-base"
+                >
+                  <option value="idea">Idea</option>
+                  <option value="problem">Medical Problem</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-white mb-2 font-medium text-sm sm:text-base">Your Idea or Problem</label>
+                <textarea
+                  required
+                  value={ideaData.idea}
+                  onChange={(e) => setIdeaData({ ...ideaData, idea: e.target.value })}
+                  className="w-full bg-blue-900/50 border border-blue-500/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition h-24 sm:h-32 resize-none text-sm sm:text-base"
+                  placeholder="Describe your idea or medical problem in detail..."
+                />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full bg-green-500 hover:bg-green-600 text-white py-3 sm:py-4 rounded-lg font-semibold transition text-sm sm:text-base"
+              >
+                Submit
+              </motion.button>
+            </form>
+          </motion.div>
+
+          {/* Display Submitted Ideas */}
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8"
+          >
+            Recent Submissions
+          </motion.h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {submittedIdeas.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-4 sm:p-6 hover:bg-white/15 transition"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    item.type === 'idea' 
+                      ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
+                      : 'bg-red-500/20 text-red-300 border border-red-500/30'
+                  }`}>
+                    {item.type === 'idea' ? '💡 Idea' : '🏥 Problem'}
+                  </span>
+                  <span className="text-gray-400 text-xs">{item.timestamp}</span>
+                </div>
+                <p className="text-gray-300 text-sm sm:text-base mb-3">{item.idea}</p>
+                <p className="text-blue-300 text-xs sm:text-sm font-medium">- {item.name}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
