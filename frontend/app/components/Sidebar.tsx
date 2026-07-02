@@ -42,9 +42,15 @@ export default function Sidebar() {
               </h3>
               <Link
                 href="/portfolio"
-                className="block text-lg text-gray-300 hover:text-red-500 transition"
+                className="block text-lg text-gray-300 hover:text-red-500 transition mb-3"
               >
                 Portfolio
+              </Link>
+              <Link
+                href="/sed"
+                className="block text-lg text-gray-300 hover:text-blue-500 transition"
+              >
+                SED - Society of Engineers & Doctors
               </Link>
             </div>
 

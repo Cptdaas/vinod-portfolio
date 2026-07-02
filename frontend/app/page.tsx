@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 import WickBackground from "./components/WickBackground";
 import Sidebar from "./components/Sidebar";
 
@@ -65,6 +66,23 @@ export default function Home() {
           Architecting scalable LLM pipelines.
           Building intelligent systems for real-world impact.
         </p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8"
+        >
+          <Link href="/sed">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(37, 99, 235, 0.6)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition shadow-lg shadow-blue-600/30"
+            >
+              SED - Society of Engineers & Doctors
+            </motion.button>
+          </Link>
+        </motion.div>
 
       </section>
 
